@@ -1,0 +1,35 @@
+1.  Подготовить две строки:
+        - encodeURIComponent("Кирилл")
+            "%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB"
+        -encodeURIComponent("Литвинов")
+            "%D0%9B%D0%B8%D1%82%D0%B2%D0%B8%D0%BD%D0%BE%D0%B2"
+2. Записать скрипт в файл:
+    POST /api/req/%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB/%D0%9B%D0%B8%D1%82%D0%B2%D0%B8%D0%BD%D0%BE%D0%B2/ HTTP/1.1
+    Host:kodaktor.ru
+    Content-Type:application/x-www-form-urlencoded
+    Content-Length:101
+
+    name=%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB&familyname=%D0%9B%D0%B8%D1%82%D0%B2%D0%B8%D0%BD%D0%BE%D0%B2
+
+    где в POST запросе первое идет name, а после familyname
+3.  Скопировать в буфер скрипт из файла, открыть консоль и подключаться при помощи telnet к адресу 151.248.115.32 80
+4.  Вставить скрипт из файла в консоль и нажать Enter
+5.  Получить Request от сервера:
+    HTTP/1.1 200 OK
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Methods: GET,POST,DELETE
+    Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
+    Content-Type: application/json; charset=utf-8
+    X-By: Ilya Goss (c)2017
+    X-Test: POST153ff0afda361343e154850156db07b9
+    Content-Length: 95
+    ETag: W/"5f-So6OtRu1jVWcNCp7/vqNoA"
+    set-cookie: connect.sid=s%3AFuco0SniaEl4qcPZP8WtyNLy0mFYZ9Ik.SZYR7K13kyhvveuxU0l51pUTUePd5kXl0%2B%2BV%2BpHAYvw; Path=/; Expires=Thu, 31 May 2018 11:43:19 GMT; HttpOnly
+    Date: Thu, 31 May 2018 08:56:39 GMT
+    Connection: keep-alive
+
+    {"name":"Кирилл","familyname":"Литвинов","_METHOD":"POST","_NAME":"Кирилл"}
+
+    Результат : X-Test: POST153ff0afda361343e154850156db07b9
+6. Получить удовольствие от проделанной работы!
